@@ -108,8 +108,9 @@ export const MacroCalculator = () => {
       const macroResults = computeMacroResults();
       
       // Send data to Google Sheets
-      await fetch("https://script.google.com/macros/s/AKfycbwthfEgncufB7vS4lkBn27fNgYaG3Vb_K_go0z6HFx8GWW9G3Qbg8fgwsIQX8SCeXSJ/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbwfccj7I0ySZcfU8f1-ZTRumLTTgU_ian1OynqC4LiCTroHRM7ltzq72d1thKATia2d6w/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: name,
@@ -349,8 +350,8 @@ export const MacroCalculator = () => {
                 >
                   ✅
                 </motion.div>
-                <h3 className="text-2xl font-bold gradient-text">Your results are ready!</h3>
-                <p className="text-foreground/70">Based on your profile and goals</p>
+                <h3 className="text-2xl font-bold gradient-text">Thank you! Your details have been submitted successfully.</h3>
+                <p className="text-foreground/70">Here are your personalized macro results</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
