@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MacroCalculator } from "@/components/MacroCalculator";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +20,7 @@ export const Navigation = () => {
 
   const scrollToSection = (id: string) => {
     if (id === "testimonials") {
-      window.location.href = "/transformations";
+      navigate("/transformations");
       return;
     }
     const element = document.getElementById(id);
