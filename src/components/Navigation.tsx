@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MacroCalculator } from "@/components/MacroCalculator";
 
@@ -9,6 +9,7 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,16 +20,43 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
+
     if (id === "testimonials") {
       navigate("/transformations");
       return;
     }
+
+    if (id === "home") {
+      if (location.pathname !== "/") {
+        navigate("/");
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
     }
   };
+
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      setTimeout(() => {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const handleJourneyClick = () => {
     window.open(
