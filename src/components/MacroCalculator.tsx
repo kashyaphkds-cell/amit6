@@ -247,8 +247,8 @@ export const MacroCalculator = () => {
                     <SelectContent className="glass-intense border-primary/20">
                       <SelectItem value="sedentary">Sedentary (little to no exercise)</SelectItem>
                       <SelectItem value="light">Light (1-3 days/week)</SelectItem>
-                      <SelectItem value="moderate">Moderately Active</SelectItem>
-                      <SelectItem value="very">Very Active</SelectItem>
+                      <SelectItem value="moderate">Moderate (3-5 days/week)</SelectItem>
+                      <SelectItem value="very">Active (6-7 days/week)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
