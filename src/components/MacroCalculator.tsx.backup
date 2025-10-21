@@ -146,16 +146,8 @@ export const MacroCalculator = () => {
     setEmail("");
   };
 
-  const handleOpenChange = (isOpen: boolean) => {
-    setOpen(isOpen);
-    // When dialog closes, reset the calculator
-    if (!isOpen) {
-      resetCalculator();
-    }
-  };
-
   return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           variant="outline"
