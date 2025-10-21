@@ -246,7 +246,7 @@ export const MacroCalculator = () => {
                     </SelectTrigger>
                     <SelectContent className="glass-intense border-primary/20">
                       <SelectItem value="sedentary">Sedentary (little to no exercise)</SelectItem>
-                      <SelectItem value="light">Lightly Active</SelectItem>
+                      <SelectItem value="light">Light (1-3 days/week)</SelectItem>
                       <SelectItem value="moderate">Moderately Active</SelectItem>
                       <SelectItem value="very">Very Active</SelectItem>
                     </SelectContent>
